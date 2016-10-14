@@ -1,0 +1,27 @@
+sitemap default label="My Smart Home"
+{
+    Frame label="Date" {
+		Text item=Date
+	}
+    Frame label="Living Room" {
+        Frame label="Light" {
+            Switch item=Light1
+            Switch item=Light2
+            Switch item=Light3
+        }
+
+        Switch item=Fan
+        Switch item=Air_Conditional
+        Switch item=Light4
+
+        Frame label="Windows" {
+            Text item=Window1
+            Text item=Window2
+        }
+
+        Frame label="Heat" {
+            Text item=Temperature
+            Text item=Humidity
+        }
+    }
+ 
