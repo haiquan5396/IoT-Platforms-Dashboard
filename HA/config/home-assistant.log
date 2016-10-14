@@ -1,6 +1,17 @@
-16-10-13 14:07:13 homeassistant.components.recorder: Ended unfinished session (id=25 from 2016-10-13 01:33:43.222845)
-16-10-13 14:07:13 homeassistant.components.recorder: Found unfinished sessions
-16-10-13 17:38:11 homeassistant.components.mqtt: Disconnected from MQTT (1). Trying to reconnect in 1s
-16-10-13 17:38:12 homeassistant.components.mqtt: Disconnected from MQTT (1). Trying to reconnect in 2s
-16-10-13 17:38:14 homeassistant.components.mqtt: Disconnected from MQTT (1). Trying to reconnect in 4s
-16-10-13 17:38:18 homeassistant.components.mqtt: Disconnected from MQTT (1). Trying to reconnect in 8s
+16-10-14 11:40:08 homeassistant.components.switch: Error while setting up platform mqtt
+Traceback (most recent call last):
+  File "/usr/src/app/homeassistant/helpers/entity_component.py", line 107, in _setup_platform
+    discovery_info)
+  File "/usr/src/app/homeassistant/components/switch/mqtt.py", line 53, in setup_platform
+    value_template,
+  File "/usr/src/app/homeassistant/components/switch/mqtt.py", line 92, in __init__
+    hass, self._state_topic, message_received, self._qos)
+  File "/usr/src/app/homeassistant/components/mqtt/__init__.py", line 177, in subscribe
+    MQTT_CLIENT.subscribe(topic, qos)
+  File "/usr/src/app/homeassistant/components/mqtt/__init__.py", line 351, in subscribe
+    _raise_on_error(result)
+  File "/usr/src/app/homeassistant/components/mqtt/__init__.py", line 449, in _raise_on_error
+    raise HomeAssistantError('Error talking to MQTT: {}'.format(result))
+homeassistant.exceptions.HomeAssistantError: Error talking to MQTT: 1
+16-10-14 11:40:08 homeassistant.components.recorder: Ended unfinished session (id=42 from 2016-10-14 04:30:28.571720)
+16-10-14 11:40:08 homeassistant.components.recorder: Found unfinished sessions

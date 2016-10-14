@@ -11,8 +11,19 @@ homeassistant:
   # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
   time_zone: Asia/Ho_Chi_Minh
 
-# Show links to resources in log and frontend
-introduction:
+  customize:
+    switch.ventilators:
+      icon: mdi:fan
+    switch.garage_ceiling_light:
+      icon: mdi:lightbulb
+    switch.garage_outside_light:
+      icon: mdi:spotlight
+    sensor.temperature:
+      icon: mdi:temperature-celsius
+    sensor.humidity:
+      icon: mdi:water-percent
+# # Show links to resources in log and frontend
+# introduction:
 
 # Enables the frontend
 frontend:
@@ -50,18 +61,63 @@ mqtt:
   port: 1883
   client_id: home-assistant-1
   
-sensor:
+sensor temperature:
   - platform: mqtt
-    name: "Fabian's Mood"
-    state_topic: "home-assistant/fabian/mood"
+    name: "temperature"
+    state_topic: "/bedroom/temperature/status"
 
-# Example configuration.yml entry
-switch:
+sensor humidity:
+  - platform: mqtt
+    name: "humidity"
+    state_topic: "/bedroom/humidity/status"
+
+sensor:
+  - platform: worldclock
+    time_zone: Asia/Ho_Chi_Minh
+
+switch one:
   platform: mqtt
-  name: "Bedroom Switch"
-  state_topic: "home/bedroom/switch"
-  command_topic: "home/bedroom/switch/set"
+  name: "Ventilators"
+  state_topic: "/garage/ventilators/status"
+  command_topic: "/garage/ventilators/set"
   payload_on: "ON"
   payload_off: "OFF"
   retain: true
   optimistic: true
+
+switch two:
+  platform: mqtt
+  name: "Garage outside light"
+  state_topic: "/garage/outside_light/status"
+  command_topic: "/garage/outside_light/switch"
+  payload_on: "ON"
+  payload_off: "OFF"
+  retain: true
+  optimistic: true
+
+switch three:
+  platform: mqtt
+  name: "Garage ceiling light"
+  state_topic: "/garage/ceiling_light/status"
+  command_topic: "/garage/ceiling_light/switch"
+  payload_on: "ON"
+  payload_off: "OFF"
+  retain: true
+  optimistic: true
+
+cover:
+  platform: mqtt
+  name: "MQTT Cover"
+  state_topic: "home-assistant/cover"
+  command_topic: "home-assistant/cover/set"
+  retain: true
+  optimistic: true
+
+group:
+  Garage:
+    - sensor.temperature
+    - sensor.humidity
+    - switch.ventilators
+    - switch.garage_ceiling_light
+    - switch.garage_outside_light
+    - cover.mqtt_cover
