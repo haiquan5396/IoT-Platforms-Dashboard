@@ -1,6 +1,2 @@
-16-10-19 15:32:16 homeassistant.components.recorder: Ended unfinished session (id=44 from 2016-10-14 07:43:05.325540)
-16-10-19 15:32:16 homeassistant.components.recorder: Found unfinished sessions
-16-10-19 16:41:53 homeassistant.components.mqtt: Disconnected from MQTT (1). Trying to reconnect in 1s
-16-10-19 16:41:54 homeassistant.components.mqtt: Disconnected from MQTT (1). Trying to reconnect in 2s
-16-10-19 16:41:56 homeassistant.components.mqtt: Disconnected from MQTT (1). Trying to reconnect in 4s
-16-10-19 16:42:00 homeassistant.components.mqtt: Disconnected from MQTT (1). Trying to reconnect in 8s
+16-10-25 21:42:49 homeassistant.components.recorder: Ended unfinished session (id=45 from 2016-10-19 08:30:07.737066)
+16-10-25 21:42:49 homeassistant.components.recorder: Found unfinished sessions
