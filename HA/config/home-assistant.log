@@ -1,2 +1,180 @@
-16-10-25 21:42:49 homeassistant.components.recorder: Ended unfinished session (id=45 from 2016-10-19 08:30:07.737066)
-16-10-25 21:42:49 homeassistant.components.recorder: Found unfinished sessions
+16-10-26 14:44:14 homeassistant.components.recorder: Ended unfinished session (id=46 from 2016-10-25 14:42:47.914343)
+16-10-26 14:44:14 homeassistant.components.recorder: Found unfinished sessions
+16-10-26 16:46:37 pychromecast.socket_client: Heartbeat timeout, resetting connection
+16-10-26 16:46:45 pychromecast.socket_client: Failed to connect, retrying in 5.000000s
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/site-packages/pychromecast/socket_client.py", line 233, in initialize_connection
+    self.socket.connect((self.host, self.port))
+  File "/usr/local/lib/python3.5/ssl.py", line 1019, in connect
+    self._real_connect(addr, False)
+  File "/usr/local/lib/python3.5/ssl.py", line 1006, in _real_connect
+    socket.connect(self, addr)
+OSError: [Errno 113] No route to host
+16-10-26 16:48:51 pychromecast.socket_client: Heartbeat timeout, resetting connection
+16-10-26 16:49:28 pychromecast.socket_client: Heartbeat timeout, resetting connection
+16-10-26 16:49:45 pychromecast.socket_client: Failed to connect, retrying in 5.000000s
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/site-packages/pychromecast/socket_client.py", line 233, in initialize_connection
+    self.socket.connect((self.host, self.port))
+  File "/usr/local/lib/python3.5/ssl.py", line 1019, in connect
+    self._real_connect(addr, False)
+  File "/usr/local/lib/python3.5/ssl.py", line 1006, in _real_connect
+    socket.connect(self, addr)
+OSError: [Errno 113] No route to host
+16-10-26 16:51:21 pychromecast.socket_client: Heartbeat timeout, resetting connection
+16-10-26 17:31:17 pychromecast.socket_client: Failed to connect, retrying in 5.000000s
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/site-packages/pychromecast/socket_client.py", line 233, in initialize_connection
+    self.socket.connect((self.host, self.port))
+  File "/usr/local/lib/python3.5/ssl.py", line 1019, in connect
+    self._real_connect(addr, False)
+  File "/usr/local/lib/python3.5/ssl.py", line 1006, in _real_connect
+    socket.connect(self, addr)
+socket.timeout: timed out
+16-10-26 21:13:53 pychromecast.socket_client: Heartbeat timeout, resetting connection
+16-10-26 21:14:23 pychromecast.socket_client: Failed to connect, retrying in 5.000000s
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/site-packages/pychromecast/socket_client.py", line 233, in initialize_connection
+    self.socket.connect((self.host, self.port))
+  File "/usr/local/lib/python3.5/ssl.py", line 1019, in connect
+    self._real_connect(addr, False)
+  File "/usr/local/lib/python3.5/ssl.py", line 1006, in _real_connect
+    socket.connect(self, addr)
+socket.timeout: timed out
+16-10-26 21:19:04 pychromecast.socket_client: Heartbeat timeout, resetting connection
+16-10-26 21:19:34 pychromecast.socket_client: Failed to connect, retrying in 5.000000s
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/site-packages/pychromecast/socket_client.py", line 233, in initialize_connection
+    self.socket.connect((self.host, self.port))
+  File "/usr/local/lib/python3.5/ssl.py", line 1019, in connect
+    self._real_connect(addr, False)
+  File "/usr/local/lib/python3.5/ssl.py", line 1006, in _real_connect
+    socket.connect(self, addr)
+socket.timeout: timed out
+16-10-26 21:19:53 netdisco.ssdp: Error fetching description at http://192.168.1.108:32226/dd.xml
+16-10-26 21:19:53 netdisco.ssdp: Error fetching description at http://192.168.1.108:4759/sony/webapi/ssdp/dd.xml
+16-10-26 21:25:27 pychromecast.socket_client: Error communicating with socket, resetting connection
+16-10-26 21:26:23 pychromecast.socket_client: Heartbeat timeout, resetting connection
+16-10-26 21:26:53 pychromecast.socket_client: Failed to connect, retrying in 5.000000s
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/site-packages/pychromecast/socket_client.py", line 233, in initialize_connection
+    self.socket.connect((self.host, self.port))
+  File "/usr/local/lib/python3.5/ssl.py", line 1019, in connect
+    self._real_connect(addr, False)
+  File "/usr/local/lib/python3.5/ssl.py", line 1006, in _real_connect
+    socket.connect(self, addr)
+socket.timeout: timed out
+16-10-26 21:29:23 pychromecast.socket_client: Heartbeat timeout, resetting connection
+16-10-26 21:29:53 pychromecast.socket_client: Failed to connect, retrying in 5.000000s
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/site-packages/pychromecast/socket_client.py", line 233, in initialize_connection
+    self.socket.connect((self.host, self.port))
+  File "/usr/local/lib/python3.5/ssl.py", line 1019, in connect
+    self._real_connect(addr, False)
+  File "/usr/local/lib/python3.5/ssl.py", line 1006, in _real_connect
+    socket.connect(self, addr)
+socket.timeout: timed out
+16-10-26 21:31:29 pychromecast.socket_client: Heartbeat timeout, resetting connection
+16-10-26 21:31:59 pychromecast.socket_client: Failed to connect, retrying in 5.000000s
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/site-packages/pychromecast/socket_client.py", line 233, in initialize_connection
+    self.socket.connect((self.host, self.port))
+  File "/usr/local/lib/python3.5/ssl.py", line 1019, in connect
+    self._real_connect(addr, False)
+  File "/usr/local/lib/python3.5/ssl.py", line 1006, in _real_connect
+    socket.connect(self, addr)
+socket.timeout: timed out
+16-10-26 21:38:00 pychromecast.socket_client: Heartbeat timeout, resetting connection
+16-10-26 21:38:30 pychromecast.socket_client: Failed to connect, retrying in 5.000000s
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/site-packages/pychromecast/socket_client.py", line 233, in initialize_connection
+    self.socket.connect((self.host, self.port))
+  File "/usr/local/lib/python3.5/ssl.py", line 1019, in connect
+    self._real_connect(addr, False)
+  File "/usr/local/lib/python3.5/ssl.py", line 1006, in _real_connect
+    socket.connect(self, addr)
+socket.timeout: timed out
+16-10-26 21:42:04 pychromecast.socket_client: Heartbeat timeout, resetting connection
+16-10-26 21:42:22 pychromecast.socket_client: Failed to connect, retrying in 5.000000s
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/site-packages/pychromecast/socket_client.py", line 233, in initialize_connection
+    self.socket.connect((self.host, self.port))
+  File "/usr/local/lib/python3.5/ssl.py", line 1019, in connect
+    self._real_connect(addr, False)
+  File "/usr/local/lib/python3.5/ssl.py", line 1006, in _real_connect
+    socket.connect(self, addr)
+OSError: [Errno 113] No route to host
+16-10-26 21:55:39 pychromecast.socket_client: Heartbeat timeout, resetting connection
+16-10-26 21:56:09 pychromecast.socket_client: Failed to connect, retrying in 5.000000s
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/site-packages/pychromecast/socket_client.py", line 233, in initialize_connection
+    self.socket.connect((self.host, self.port))
+  File "/usr/local/lib/python3.5/ssl.py", line 1019, in connect
+    self._real_connect(addr, False)
+  File "/usr/local/lib/python3.5/ssl.py", line 1006, in _real_connect
+    socket.connect(self, addr)
+socket.timeout: timed out
+16-10-26 21:56:54 pychromecast.socket_client: Heartbeat timeout, resetting connection
+16-10-26 21:57:24 pychromecast.socket_client: Failed to connect, retrying in 5.000000s
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/site-packages/pychromecast/socket_client.py", line 233, in initialize_connection
+    self.socket.connect((self.host, self.port))
+  File "/usr/local/lib/python3.5/ssl.py", line 1019, in connect
+    self._real_connect(addr, False)
+  File "/usr/local/lib/python3.5/ssl.py", line 1006, in _real_connect
+    socket.connect(self, addr)
+socket.timeout: timed out
+16-10-26 21:57:47 pychromecast.socket_client: Error communicating with socket, resetting connection
+16-10-26 21:58:42 pychromecast.socket_client: Heartbeat timeout, resetting connection
+16-10-26 21:59:39 pychromecast.socket_client: Heartbeat timeout, resetting connection
+16-10-26 22:00:09 pychromecast.socket_client: Failed to connect, retrying in 5.000000s
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/site-packages/pychromecast/socket_client.py", line 233, in initialize_connection
+    self.socket.connect((self.host, self.port))
+  File "/usr/local/lib/python3.5/ssl.py", line 1019, in connect
+    self._real_connect(addr, False)
+  File "/usr/local/lib/python3.5/ssl.py", line 1006, in _real_connect
+    socket.connect(self, addr)
+socket.timeout: timed out
+16-10-26 22:09:56 pychromecast.socket_client: Heartbeat timeout, resetting connection
+16-10-26 22:10:14 pychromecast.socket_client: Failed to connect, retrying in 5.000000s
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/site-packages/pychromecast/socket_client.py", line 233, in initialize_connection
+    self.socket.connect((self.host, self.port))
+  File "/usr/local/lib/python3.5/ssl.py", line 1019, in connect
+    self._real_connect(addr, False)
+  File "/usr/local/lib/python3.5/ssl.py", line 1006, in _real_connect
+    socket.connect(self, addr)
+OSError: [Errno 113] No route to host
+16-10-26 22:12:01 pychromecast.socket_client: Error communicating with socket, resetting connection
+16-10-26 22:13:11 pychromecast.socket_client: Error communicating with socket, resetting connection
+16-10-26 22:15:57 pychromecast.socket_client: Heartbeat timeout, resetting connection
+16-10-26 22:16:27 pychromecast.socket_client: Failed to connect, retrying in 5.000000s
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/site-packages/pychromecast/socket_client.py", line 233, in initialize_connection
+    self.socket.connect((self.host, self.port))
+  File "/usr/local/lib/python3.5/ssl.py", line 1019, in connect
+    self._real_connect(addr, False)
+  File "/usr/local/lib/python3.5/ssl.py", line 1006, in _real_connect
+    socket.connect(self, addr)
+socket.timeout: timed out
+16-10-26 22:31:56 pychromecast.socket_client: Heartbeat timeout, resetting connection
+16-10-26 22:32:26 pychromecast.socket_client: Failed to connect, retrying in 5.000000s
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/site-packages/pychromecast/socket_client.py", line 233, in initialize_connection
+    self.socket.connect((self.host, self.port))
+  File "/usr/local/lib/python3.5/ssl.py", line 1019, in connect
+    self._real_connect(addr, False)
+  File "/usr/local/lib/python3.5/ssl.py", line 1006, in _real_connect
+    socket.connect(self, addr)
+socket.timeout: timed out
+16-10-26 23:07:22 pychromecast.socket_client: Heartbeat timeout, resetting connection
+16-10-26 23:07:52 pychromecast.socket_client: Failed to connect, retrying in 5.000000s
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/site-packages/pychromecast/socket_client.py", line 233, in initialize_connection
+    self.socket.connect((self.host, self.port))
+  File "/usr/local/lib/python3.5/ssl.py", line 1019, in connect
+    self._real_connect(addr, False)
+  File "/usr/local/lib/python3.5/ssl.py", line 1006, in _real_connect
+    socket.connect(self, addr)
+socket.timeout: timed out
