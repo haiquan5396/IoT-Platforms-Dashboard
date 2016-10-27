@@ -21,7 +21,7 @@ def test():
     # print oh.get_sensor_state("Light1")
     # print oh.set_sensor_state("Light1","OFF")
     ha = home_assistant.home_assistant()
-
+    print ha.set_sensor_state("switch.garage_ceiling_light","on")
     return render_template('home.html')
 
 
