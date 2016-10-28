@@ -232,3 +232,65 @@ Traceback (most recent call last):
 socket.timeout: timed out
 16-10-27 16:30:08 pychromecast.socket_client: Heartbeat timeout, resetting connection
 16-10-27 16:31:30 pychromecast.socket_client: Heartbeat timeout, resetting connection
+16-10-27 16:32:00 pychromecast.socket_client: Failed to connect, retrying in 5.000000s
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/site-packages/pychromecast/socket_client.py", line 233, in initialize_connection
+    self.socket.connect((self.host, self.port))
+  File "/usr/local/lib/python3.5/ssl.py", line 1019, in connect
+    self._real_connect(addr, False)
+  File "/usr/local/lib/python3.5/ssl.py", line 1006, in _real_connect
+    socket.connect(self, addr)
+socket.timeout: timed out
+16-10-27 16:32:45 pychromecast.socket_client: Heartbeat timeout, resetting connection
+16-10-27 16:33:03 pychromecast.socket_client: Failed to connect, retrying in 5.000000s
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/site-packages/pychromecast/socket_client.py", line 233, in initialize_connection
+    self.socket.connect((self.host, self.port))
+  File "/usr/local/lib/python3.5/ssl.py", line 1019, in connect
+    self._real_connect(addr, False)
+  File "/usr/local/lib/python3.5/ssl.py", line 1006, in _real_connect
+    socket.connect(self, addr)
+OSError: [Errno 113] No route to host
+16-10-27 16:35:53 pychromecast.socket_client: Heartbeat timeout, resetting connection
+16-10-27 16:36:23 pychromecast.socket_client: Failed to connect, retrying in 5.000000s
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/site-packages/pychromecast/socket_client.py", line 233, in initialize_connection
+    self.socket.connect((self.host, self.port))
+  File "/usr/local/lib/python3.5/ssl.py", line 1019, in connect
+    self._real_connect(addr, False)
+  File "/usr/local/lib/python3.5/ssl.py", line 1006, in _real_connect
+    socket.connect(self, addr)
+socket.timeout: timed out
+16-10-27 16:38:16 pychromecast.socket_client: Heartbeat timeout, resetting connection
+16-10-27 16:38:46 pychromecast.socket_client: Failed to connect, retrying in 5.000000s
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/site-packages/pychromecast/socket_client.py", line 233, in initialize_connection
+    self.socket.connect((self.host, self.port))
+  File "/usr/local/lib/python3.5/ssl.py", line 1019, in connect
+    self._real_connect(addr, False)
+  File "/usr/local/lib/python3.5/ssl.py", line 1006, in _real_connect
+    socket.connect(self, addr)
+socket.timeout: timed out
+16-10-27 16:39:57 netdisco.ssdp: Error fetching description at http://192.168.1.108:60878/sony/webapi/ssdp/dd.xml
+16-10-27 16:39:57 pychromecast.socket_client: Error communicating with socket, resetting connection
+16-10-27 16:40:12 netdisco.ssdp: Error fetching description at http://192.168.1.108:38020/dd.xml
+16-10-27 16:43:51 pychromecast.socket_client: Heartbeat timeout, resetting connection
+16-10-27 16:44:21 pychromecast.socket_client: Failed to connect, retrying in 5.000000s
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/site-packages/pychromecast/socket_client.py", line 233, in initialize_connection
+    self.socket.connect((self.host, self.port))
+  File "/usr/local/lib/python3.5/ssl.py", line 1019, in connect
+    self._real_connect(addr, False)
+  File "/usr/local/lib/python3.5/ssl.py", line 1006, in _real_connect
+    socket.connect(self, addr)
+socket.timeout: timed out
+16-10-27 16:44:57 pychromecast.socket_client: Heartbeat timeout, resetting connection
+16-10-27 16:45:27 pychromecast.socket_client: Failed to connect, retrying in 5.000000s
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/site-packages/pychromecast/socket_client.py", line 233, in initialize_connection
+    self.socket.connect((self.host, self.port))
+  File "/usr/local/lib/python3.5/ssl.py", line 1019, in connect
+    self._real_connect(addr, False)
+  File "/usr/local/lib/python3.5/ssl.py", line 1006, in _real_connect
+    socket.connect(self, addr)
+socket.timeout: timed out
