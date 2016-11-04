@@ -28,7 +28,8 @@ CREATE TABLE `sensors` (
   `soft_name` varchar(100) DEFAULT NULL,
   `type` varchar(100) DEFAULT NULL,
   `state` varchar(100) DEFAULT NULL,
-  `update_time` datetime DEFAULT NULL,
+  `changed_time` datetime DEFAULT NULL,
+  `updated_time` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -51,4 +52,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-11-04 10:22:52
+-- Dump completed on 2016-11-04 16:05:30
