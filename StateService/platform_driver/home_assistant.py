@@ -1,6 +1,6 @@
 import requests
 import json
-class home_assistant:
+class home_assistant_driver:
     host = None
     port = None
     def __init__(self, host=None, port=None):
@@ -18,6 +18,13 @@ class home_assistant:
                 raise Exception()
         except Exception:
             print "Unable to connect to Home Assistant"
+
+    def check_status(self):
+        connect = requests.get(self.url)
+        if connect.status_code == 200:
+            return True
+        else:
+            return False
 
     def get_states_json(self):
         response = requests.get(self.url + "/api/states")

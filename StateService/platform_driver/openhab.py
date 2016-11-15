@@ -18,8 +18,17 @@ class openhab_driver:
             else:
                 print "[!!!ERROR] Wrong host or port"
                 raise  Exception()
+                return None
         except Exception:
             print "Unable to connect to OpenHabAPI"
+## check status of server
+    def check_status(self):
+        connect = requests.get(self.url)
+        if connect.status_code == 200:
+            return True
+        else:
+            return False
+
 
 ##  get XML from API and parse to XML-Tree return root
     def get_states_tree(self):
