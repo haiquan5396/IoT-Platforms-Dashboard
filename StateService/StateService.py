@@ -2,13 +2,35 @@ from flask import Flask, render_template, jsonify, request
 from threading import Timer, Thread
 from platform_driver import openhab, home_assistant
 from influxdb import InfluxDBClient
-import datetime
+import json
+from time import sleep
+import time
 
 app = Flask(__name__)
 @app.route("/")
 def hello_world():
     return "hello_world"
 
+#get all sensor state via driver
+@app.route("/api/states", methods=["GET"])
+def get_sensor_states():
+    oh = openhab.openhab_driver()
+    ha = home_assistant.home_assistant_driver()
+    items = []
+    oh_items = []
+    ha_items = []
+    if oh.check_status() == True:
+        oh_items = oh.get_all_sensor_informations()
+    if ha.check_status() == True:
+        ha_items = ha.get_all_sensor_informations()
+
+    items = oh_items + ha_items
+    return json.dumps(items)
+
+@app.route("/   api/state/<string:name>",methods=["GET"])
+def get_sensor_state_by_name(name):
+    result = client.query('select * from '+name)
+    return result
 
 class Scheduler(object):
     def __init__(self, sleep_time, function):
@@ -46,16 +68,21 @@ def influxdb_init():
     client = InfluxDBClient(host, port, user, password, dbname)
     return client
 
-def update_openhab_state():
+def update_openhab_state(influxdb_client):
+    client = influxdb_client
     oh = openhab.openhab_driver()
     if oh.check_status() == True:
         items = oh.get_all_sensor_informations()
-        print items
-        global client
+        # print items
+
         for item in items:
+            # sleep(0.1)
+            # start_time = time.time()
+            # print "a"
+            # print("--- %s seconds ---" % (time.time() - start_time))
             json_body = [
                 {
-                "measurement": item[0],
+                    "measurement": item[0],
                     "tags": {
                         "platform": "openhab"
                         },
@@ -71,13 +98,13 @@ def update_openhab_state():
     else:
         print "[!ERROR] openhab is not running in your port"
 
-def update_homeassistant_state():
+def update_homeassistant_state(influxdb_client):
+    client = influxdb_client
     ha = home_assistant.home_assistant_driver()
-    print "1"
     if ha.check_status() == True:
         print "2"
         items = ha.get_all_sensor_informations()
-        print items
+        # print items
         for item in items:
             soft_name = item[0].split(".")[1]
             json_body = [
@@ -94,13 +121,19 @@ def update_homeassistant_state():
                 }
             ]
             client.write_points(json_body)
-
+    else:
+        print "[!ERROR] Home-assistant is not running in your port"
 def update_sensor_state():
-    # update_openhab_state();
-    update_homeassistant_state()
-if __name__ == "__main__":
     client = influxdb_init()
+    update_openhab_state(client)
+    update_homeassistant_state(client)
+
+def pass_method():
+    pass
+if __name__ == "__main__":
+
     scheduler = Scheduler(3 , update_sensor_state)
+    # scheduler = Scheduler(3, pass_method)
     scheduler.start()
     app.run(host='0.0.0.0', port=1337)
     scheduler.stop()
