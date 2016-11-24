@@ -4,15 +4,16 @@ sitemap default label="My Smart Home"
 		Text item=Date
 	}
     Frame label="Living Room" {
-        Frame label="Light" {
+        Frame label="Lights" {
+            Switch item=Lights
             Switch item=Light1
             Switch item=Light2
             Switch item=Light3
+            Switch item=Light4
         }
 
         Switch item=Fan
         Switch item=Air_Conditional
-        Switch item=Light4
 
         Frame label="Windows" {
             Text item=Window1

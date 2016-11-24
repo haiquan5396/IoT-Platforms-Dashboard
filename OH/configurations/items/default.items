@@ -1,16 +1,27 @@
+Group All
+Group:Switch:OR(ON, OFF)        Lights      "All Lights [(%d)]" (All)
+
 /* NTP binding demo item */
 DateTime		Date			"Date [%1$tA, %1$td.%1$tm.%1$tY]"	<calendar>	{ ntp="Europe/Berlin:de_DE" }
 
-Switch Light1 "Ceiling Light 1" { mqtt="<[mymosquitto:/Living/Light1/Status:state:default],>[mymosquitto:/Living/Light1/Command:command:ON:1],>[mymosquitto:/Living/Light1/Command:command:OFF:0]" }
-Switch Light2 "Ceiling Light 2" { mqtt="<[mymosquitto:/Living/Light2/Status:state:default],>[mymosquitto:/Living/Light2/Command:command:ON:1],>[mymosquitto:/Living/Light2/Command:command:OFF:0]" }
-Switch Light3 "Outside Light"  <house> { mqtt="<[mymosquitto:/Living/Light3/Status:state:default],>[mymosquitto:/Living/Light3/Command:command:ON:1],>[mymosquitto:/Living/Light3/Command:command:OFF:0]" }
+Switch Light1 "Ceiling Light 1"  (Lights) { mqtt="<[mymosquitto:/Living/Light1/Status:state:default],>[mymosquitto:/Living/Light1/Command:command:ON:1],>[mymosquitto:/Living/Light1/Command:command:OFF:0]" }
+
+Switch Light2 "Ceiling Light 2"  (Lights) { mqtt="<[mymosquitto:/Living/Light2/Status:state:default],>[mymosquitto:/Living/Light2/Command:command:ON:1],>[mymosquitto:/Living/Light2/Command:command:OFF:0]" }
+
+Switch Light3 "Outside Light"  <house>   (Lights) { mqtt="<[mymosquitto:/Living/Light3/Status:state:default],>[mymosquitto:/Living/Light3/Command:command:ON:1],>[mymosquitto:/Living/Light3/Command:command:OFF:0]" }
+
+Switch Light4 "TV Back Light" <television>    (Lights) { mqtt="<[mymosquitto:/Living/Light4/Status:state:default],>[mymosquitto:/Living/Light4/Command:command:ON:1],>[mymosquitto:/Living/Light4/Command:command:OFF:0]" }
+
 
 Switch Fan    "Ceiling Fan"    <socket>     { mqtt="<[mymosquitto:/Living/Fan/Status:state:default],>[mymosquitto:/Living/Fan/Command:command:ON:1],>[mymosquitto:/Living/Fan/Command:command:OFF:0]" }
+
 Switch Air_Conditional "Air Conditional" <socket> { mqtt="<[mymosquitto:/Living/Air_Conditional/Status:state:default],>[mymosquitto:/Living/Air_Conditional/Command:command:ON:1],>[mymosquitto:/Living/Air_Conditional/Command:command:OFF:0]" }
-Switch Light4 "TV Back Light" <television>   { mqtt="<[mymosquitto:/Living/Light4/Status:state:default],>[mymosquitto:/Living/Light4/Command:command:ON:1],>[mymosquitto:/Living/Light4/Command:command:OFF:0]" }
+
 
 Contact Window1 "Window1 [MAP(en.map):%s]"    { mqtt="<[mymosquitto:/Living/Window1/Status:state:default],>[mymosquitto:/Living/Window1/Command:command:OPEN:1],>[mymosquitto:/Living/Window1/Command:command:CLOSE:0]" }
+
 Contact Window2 "Window2 [MAP(en.map):%s]"    { mqtt="<[mymosquitto:/Living/Window2/Status:state:default],>[mymosquitto:/Living/Window2/Command:command:OPEN:1],>[mymosquitto:/Living/Window2/Command:command:CLOSE:0]" }
+
 
 Number Temperature "Temperature [%.1f C]" <temperature> (Living) {mqtt="<[mymosquitto:/Living/Temperature:state:default]"}
 Number Humidity "Humidity [%%]" <water> (Living) {mqtt="<[mymosquitto:/Living/Humidity:state:default]"}
