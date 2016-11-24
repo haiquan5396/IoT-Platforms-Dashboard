@@ -14,9 +14,9 @@ homeassistant:
   customize:
     switch.ventilators:
       icon: mdi:fan
-    switch.garage_ceiling_light:
+    light.garage_ceiling_light:
       icon: mdi:lightbulb
-    switch.garage_outside_light:
+    light.garage_outside_light:
       icon: mdi:spotlight
     sensor.temperature:
       icon: mdi:temperature-celsius
@@ -85,7 +85,7 @@ switch one:
   retain: true
   optimistic: true
 
-switch two:
+light two:
   platform: mqtt
   name: "Garage outside light"
   state_topic: "/garage/outside_light/status"
@@ -95,7 +95,7 @@ switch two:
   retain: true
   optimistic: true
 
-switch three:
+light three:
   platform: mqtt
   name: "Garage ceiling light"
   state_topic: "/garage/ceiling_light/status"
@@ -118,6 +118,6 @@ group:
     - sensor.temperature
     - sensor.humidity
     - switch.ventilators
-    - switch.garage_ceiling_light
-    - switch.garage_outside_light
+    - light.garage_ceiling_light
+    - light.garage_outside_light
     - cover.mqtt_cover
