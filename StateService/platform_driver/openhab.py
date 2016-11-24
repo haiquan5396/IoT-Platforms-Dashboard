@@ -54,6 +54,8 @@ class openhab_driver:
         names = []
         root = self.get_states_tree()
         for item in root.findall("item"):
+            if item.find("type").text == "GroupItem":
+                continue
             names.append(item.find("name").text)
         return names
 
@@ -63,23 +65,24 @@ class openhab_driver:
         states = []
         root = self.get_states_tree()
         for item in root.findall("item"):
+            if item.find("type").text == "GroupItem":
+                continue
             state = []
             state.append(item.find("name").text)
             state.append(item.find("state").text)
             states.append(state)
         return states
 
-    #get name,state
+    #get name,state (type = Lights, Fans ===config in openhab)
     def get_sensor_infomations_by_type(self, type):
         # return name and state {[name,state],[..]}
         states = []
-        root = self.get_states_tree()
-        for item in root.findall("item"):
-            if type == root.find("type").text:
-                state = []
-                state.append(item.find("name").text)
-                state.append(item.find("state").text)
-                states.append(state)
+        root = self.get_state_tree_by_name(type)
+        for member in root.findall("members"):
+            state = []
+            state.append(member.find("name").text)
+            state.append(member.find("state").text)
+            states.append(state)
         return states
 
 
@@ -89,6 +92,8 @@ class openhab_driver:
         states = []
         root = self.get_states_tree()
         for item in root.findall("item"):
+            if item.find("type").text == "GroupItem":
+                continue
             state = []
             state.append(item.find("name").text)
             state.append(item.find("state").text)
