@@ -1,96 +1,46 @@
 import requests
 import xml.etree.ElementTree as ET
+from base import Base
 
-####regular method call to openhabAPI
-class openhab_driver:
-    host = None
-    port = None
-    url = None
+class openhab_driver(Base):
     def __init__(self, host=None, port=None):
         self.host = host if host is not None else "localhost"
         self.port = port if port is not None else "8080"
         self.url = "http://" + self.host + ":" + self.port
-        try:
-            connect = requests.get(self.url)
-            print connect.status_code
-            if connect.status_code == 200:
-                print "[SUCCESS] Connected to OpenHab"
-            else:
-                print "[!!!ERROR] Wrong host or port"
-                raise  Exception()
-                return None
-        except Exception:
-            print "Unable to connect to OpenHabAPI"
-## check status of server
-    def check_status(self):
-        connect = requests.get(self.url)
-        if connect.status_code == 200:
-            return True
+
+        if self.check_status() == True:
+            print "OpenHab is running, Connected"
         else:
-            return False
+            print "Unable to connect to OpenHabAPI, Wrong host or port"
 
+    ############ Get states from Platform api (json or xml..)
+    #------get states tree
+    def get_states_resource(self):
+        if self.check_status() == True:
+            response = requests.get(self.url+"/rest/items")
+            root = ET.fromstring(response.content)
+            return root
+        else:
+            return None
 
-##  get XML from API and parse to XML-Tree return root
-    def get_states_tree(self):
-        response = requests.get(self.url+"/rest/items")
-        root = ET.fromstring(response.content)
-        return root
+    def get_state_resource_by_name(self, name):
+        response = requests.get(self.url + "/rest/items/" + name)
+        if response.status_code != 200: ## That means wrong port or name
+            return None ## nothing to return here
+        else:
+            root = ET.fromstring(response.content)
+            return root
 
-    def get_state_tree_by_name(self, name):
-        try:
-            response = requests.get(self.url + "/rest/items/"+ name)
-            if response.status_code != 200:
-                raise Exception()
-            else:
-                root = ET.fromstring(response.content)
-                return root
-        except Exception:
-            print "[!!!ERROR] Invalid sensor name : " + name
-        return None
-
-##  get infomation from API
-    #get name
-    def get_all_sensor_names(self):
-        names = []
-        root = self.get_states_tree()
-        for item in root.findall("item"):
-            if item.find("type").text == "GroupItem":
-                continue
-            names.append(item.find("name").text)
-        return names
-
-    #get name and state
-    def get_all_sensor_states(self):
-        #return name and state {[name,state],[..]}
+    #############
+    #------- get all infomation ( name/id, state, itemtype )
+    def get_all_sensors_infomation(self):
         states = []
-        root = self.get_states_tree()
-        for item in root.findall("item"):
-            if item.find("type").text == "GroupItem":
-                continue
-            state = []
-            state.append(item.find("name").text)
-            state.append(item.find("state").text)
-            states.append(state)
-        return states
+        root = self.get_states_resource()
 
-    #get name,state (type = Lights, Fans ===config in openhab)
-    def get_sensor_infomations_by_type(self, type):
-        # return name and state {[name,state],[..]}
-        states = []
-        root = self.get_state_tree_by_name(type)
-        for member in root.findall("members"):
-            state = []
-            state.append(member.find("name").text)
-            state.append(member.find("state").text)
-            states.append(state)
-        return states
+        if root == None: ## if root == None mean server deaded or sth like that
+            print "Your server is not running probably"
+            return None
 
-
-    #get name,state and type
-    def get_all_sensor_informations(self):
-        #return name,state and type {[name,state,type],[..]}
-        states = []
-        root = self.get_states_tree()
         for item in root.findall("item"):
             if item.find("type").text == "GroupItem":
                 continue
@@ -101,7 +51,29 @@ class openhab_driver:
             states.append(state)
         return states
 
-    #get sensor state by name
+    #------- get all infomation by type ( name/id , state )
+    def get_all_sensors_infomation_by_type(self, type):
+        if type.lower() == "lights" or type.lower() == "light":
+            type = "Lights"
+        else:
+            print "only accept light type"
+            return []
+
+        # return name and state {[name,state],[..]}
+        states = []
+        root = self.get_state_tree_by_name(type)
+        if root == None:
+            print "No group has name '\Lights\'"
+            return []
+        for member in root.findall("members"):
+            state = []
+            state.append(member.find("name").text)
+            state.append(member.find("state").text)
+            states.append(state)
+        return states
+
+
+    #------- get sensor state by name
     def get_sensor_state(self, name):
         root = self.get_state_tree_by_name(name)
         if root == None:
@@ -110,28 +82,8 @@ class openhab_driver:
         else:
             return root.find("state").text
 
-    #get sensor type  by name
-    def get_sensor_type(self, name):
-        root = self.get_state_tree_by_name(name)
-        if root == None:
-            print "No sensor name match"
-            return
-        else:
-            return root.find("type").text
-
-##  set sensor state
-
-    # set sensor state by name
+    #------- set sensor state
     def set_sensor_state(self, name, state):
-        if requests.put(self.url + "/rest/items/"+ name + "/state", state).status_code == 200:
+        if requests.put(self.url + "/rest/items/" + name + "/state", state).status_code == 200:
             return "SUCCESS"
         return "ERROR"
-
-    # unusable ----- BECAUSE TYPE IN CONFIG ### TYPE FROM REAL WORLD
-    # # set sensors state by type
-    # def set_sensors_state_by_type(self, type, state):
-    #     pass
-    #
-    # #switch state of switch, light, door,...
-    # def switch_sensors_state(self, type, state):
-    #     pass

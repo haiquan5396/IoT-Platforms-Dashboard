@@ -1,6 +1,6 @@
 from flask import Flask, jsonify, request, abort
 from threading import Timer, Thread
-from platform_driver import openhab, home_assistant
+from platform_driver import oh, ha
 from influxdb import InfluxDBClient
 from time import sleep
 import json
@@ -33,8 +33,8 @@ def hello_world():
 #get all sensor state via driver
 @app.route("/api/states", methods=["GET"])
 def get_sensor_states():
-    oh = openhab.openhab_driver()
-    ha = home_assistant.home_assistant_driver()
+    oh = oh.openhab_driver()
+    ha = ha.home_assistant_driver()
     items = []
     oh_items = []
     ha_items = []
@@ -73,14 +73,14 @@ def set_sensor_state_by_name(name):
     result_set = client.query('SHOW TAG VALUES FROM \"'+ name + '\" WITH KEY = "platform"')
     platform = list(result_set)[0][0]["platform"]
     if platform == "openhab":
-        oh = openhab.openhab_driver()
+        oh = oh.openhab_driver()
         result = oh.set_sensor_state(name,state)
         if result == "SUCCESS":
             print "SUCCESS"
         else:
             print "ERROR"
     elif platform == "home_assistant" :
-        ha = home_assistant.home_assistant_driver()
+        ha = ha.home_assistant_driver()
         result = ha.set_sensor_state(name,state)
         if result == "SUCCESS":
             print "SUCCESS"
@@ -93,8 +93,8 @@ def set_sensor_state_by_type(type):
     if not request.json or not 'state' in request.json:
         abort(400)
     state = request.json['state']
-    oh = openhab.openhab_driver()
-    ha = home_assistant.home_assistant_driver()
+    oh = oh.openhab_driver()
+    ha = ha.home_assistant_driver()
 
     if type == "Lights":
         items = []
@@ -134,7 +134,7 @@ class Scheduler(object):
 
 def update_openhab_state(influxdb_client):
     client = influxdb_client
-    oh = openhab.openhab_driver()
+    oh = oh.openhab_driver()
     if oh.check_status() == True:
         items = oh.get_all_sensor_informations()
         # print items
@@ -165,7 +165,7 @@ def update_openhab_state(influxdb_client):
 
 def update_homeassistant_state(influxdb_client):
     client = influxdb_client
-    ha = home_assistant.home_assistant_driver()
+    ha = ha.home_assistant_driver()
     if ha.check_status() == True:
         print "2"
         items = ha.get_all_sensor_informations()
