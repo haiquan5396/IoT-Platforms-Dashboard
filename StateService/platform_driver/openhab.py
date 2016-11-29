@@ -1,9 +1,10 @@
 import requests
 import xml.etree.ElementTree as ET
-from base import Base
+from driver_base import Driver_base
 
-class openhab_driver(Base):
+class openhab_driver(Driver_base):
     def __init__(self, host=None, port=None):
+        # super.__init__(self)
         self.host = host if host is not None else "localhost"
         self.port = port if port is not None else "8080"
         self.url = "http://" + self.host + ":" + self.port
@@ -56,12 +57,12 @@ class openhab_driver(Base):
         if type.lower() == "lights" or type.lower() == "light":
             type = "Lights"
         else:
-            print "only accept light type"
+            print "only support light type"
             return []
 
         # return name and state {[name,state],[..]}
         states = []
-        root = self.get_state_tree_by_name(type)
+        root = self.get_state_resource_by_name(type)
         if root == None:
             print "No group has name '\Lights\'"
             return []
@@ -75,7 +76,7 @@ class openhab_driver(Base):
 
     #------- get sensor state by name
     def get_sensor_state(self, name):
-        root = self.get_state_tree_by_name(name)
+        root = self.get_state_resource_by_name(name)
         if root == None:
             print "No sensor name match"
             return

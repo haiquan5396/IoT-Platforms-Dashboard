@@ -1,5 +1,5 @@
 import requests
-class Base(object):
+class Driver_base(object):
     host = None
     port = None
     url = None
@@ -18,7 +18,7 @@ class Base(object):
     def get_states_resource(self):
         pass
 
-    def get_state_resource_by_name(self):
+    def get_state_resource_by_name(self, name):
         pass
 
     #############
@@ -26,7 +26,7 @@ class Base(object):
     def get_all_sensors_infomation(self):
         pass
     #------- get all infomation by type ( name/id , state )
-    def get_all_sensors_infomation_by_type(self):
+    def get_all_sensors_infomation_by_type(self, type):
         pass
 
     #------- get sensor state by name
