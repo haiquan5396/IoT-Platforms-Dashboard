@@ -1,0 +1,26 @@
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading">Panel heading</div>
+
+  <!-- Table -->
+  <table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>State</th>
+            <th>Action</th>
+        <tr>
+    </thead>
+    <tbody *ngFor="let item of items">
+        <tr>
+            <td>{{item[0]}}</td>
+            <td>{{item[1]}}</td>
+            <td> <label class="switch"> 
+                    <input type="checkbox">
+                    <div class="slider round"></div>
+                </label>
+            </td>
+        </tr>
+    </tbody>
+  </table>
+</div>
