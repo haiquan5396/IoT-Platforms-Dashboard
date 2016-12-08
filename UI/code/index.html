@@ -3,12 +3,14 @@
 
 <head lang="en">
     <title>Acme Product Management</title>
+    <base href="/">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link href="node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
     <link href="app/app.component.css" rel="stylesheet" />
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <!-- Polyfill(s) for older browsers -->
     <script src="node_modules/core-js/client/shim.min.js"></script>
     
@@ -21,11 +23,14 @@
     <script>
       System.import('app').catch(function(err){ console.error(err); });
     </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Roboto');
+    </style>
+
 </head>
 
 <body>
-    <pm-app></pm-app>
-    Starter files
+    <pm-app>loading....</pm-app>
 </body>
 
 </html>
