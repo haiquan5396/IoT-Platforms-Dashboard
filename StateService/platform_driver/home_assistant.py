@@ -51,6 +51,8 @@ class home_assitant(Driver_base):
         for item in data:
             entity_id = item["entity_id"]
             type = entity_id.split(".")[0]
+            if type == "group":
+                continue
             state = []
             state.append(entity_id)
             state.append(item["state"])

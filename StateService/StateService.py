@@ -53,6 +53,15 @@ def crossdomain(origin=None, methods=None, headers=None,
 #===================================================================   
 app = Flask(__name__)
 
+# @app.after_request
+
+# def after_request(response):
+#   response.headers.add('Access-Control-Allow-Origin', '*')
+#   response.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization')
+#   response.headers.add('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE')
+#   return response
+
+
 def platform_init():
     list = []
     platforms_name = ["openhab","home-assistant"]
@@ -88,6 +97,7 @@ def get_sensor_state_by_name(name):
     return json.dumps(list(result_set)[0][0])  ##{"platform": "openhab", "state": "ON", ....}
 
 @app.route("/api/states/history/<name>", methods=["GET"])
+@crossdomain(origin="*")
 def get_state_history_by_name(name):
     global db_client
     print "get history of" + name
@@ -95,7 +105,8 @@ def get_state_history_by_name(name):
     result_set = db_client.query('SELECT * FROM \"' + name + '\" ORDER BY time DESC LIMIT 5')
     return json.dumps(list(result_set)[0])
 
-@app.route("/api/states/<name>", methods=["POST"])
+@app.route("/api/states/<name>", methods=["POST","OPTIONS"])
+@crossdomain(origin="*",headers=['origin', 'content-type', 'accept'])
 def set_sensor_state_by_name(name):
     if not request.json or not 'state' in request.json:
         abort(400)
@@ -115,7 +126,8 @@ def set_sensor_state_by_name(name):
                 print "ERROR"
     return jsonify(request.json), 201
 
-@app.route("/api/states/type/<type>", methods=["POST"])
+@app.route("/api/states/type/<type>", methods=["POST","OPTIONS"])
+@crossdomain(origin="*")
 def set_sensor_state_by_type(type):
     if not request.json or not 'state' in request.json:
         abort(400)
@@ -136,5 +148,5 @@ def pass_method():
 if __name__ == "__main__":
     scheduler = Scheduler(1, data_recoder.update_data)
     scheduler.start()
-    app.run(host='0.0.0.0', port=1337)
+    app.run(host='0.0.0.0', port=1337, threaded=True)
     scheduler.stop()
