@@ -6,8 +6,7 @@ div.panel-heading {
    font-size: x-large; 
 }
 
-/*toggle switch*/
-/* The switch - the box around the slider */
+/* The switch - /* toggle switch */
 .switch {
   position: relative;
   display: inline-block;
@@ -65,4 +64,4 @@ input:checked + .slider:before {
 .slider.round:before {
   border-radius: 50%;
 }
-/*End toggle switch*/
+/* toggle switch */

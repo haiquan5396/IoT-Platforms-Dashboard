@@ -8,18 +8,44 @@
         <tr>
             <th>Name</th>
             <th>State</th>
+            <th>Type</th> 
             <th>Action</th>
         <tr>
     </thead>
-    <tbody *ngFor="let item of items">
-        <tr>
+    <tbody>
+        <tr *ngFor="let item of items">
             <td>{{item[0]}}</td>
             <td>{{item[1]}}</td>
-            <td> <label class="switch"> 
-                    <input type="checkbox">
+            <td>{{item[2]}}</td>
+            <td *ngIf="isSwitchTypes(item[2]) == true">
+                    <label class="switch">
+                            <input *ngIf="isOn(item[1]) == true" type="checkbox" checked (change)="changeState(item)"/>
+                            <input *ngIf="isOn(item[1]) == false" type="checkbox" (change)="changeState(item)"/>
+                        <div class="slider round"></div>
+                    </label>
+            </td>
+            <td *ngIf="isSwitchTypes(item[2]) == false">{{item[1]}}</td>
+            <!--<label *ngFor="let type of switchItemTypes">
+                <td *ngIf="item[2] == type">
+                    <label class="switch">
+                        <input type="checkbox" checked>
+                        <div class="slider round"></div>
+                    </label>
+                </td>
+            </label>-->
+            <!--<td *ngIf="item[1] == 'ON'"> 
+                <label class="switch">
+                    <input type="checkbox" checked>
                     <div class="slider round"></div>
                 </label>
             </td>
+
+            <td *ngIf="item[1] != 'ON'"> 
+                <label class="switch">
+                    <input type="checkbox">
+                    <div class="slider round"></div>
+                </label>
+            </td>-->
         </tr>
     </tbody>
   </table>

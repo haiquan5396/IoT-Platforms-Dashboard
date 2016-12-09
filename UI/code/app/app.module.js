@@ -32,6 +32,7 @@ AppModule = __decorate([
         imports: [
             platform_browser_1.BrowserModule,
             http_1.HttpModule,
+            http_1.JsonpModule,
             router_1.RouterModule.forRoot(appRoutes)
         ],
         declarations: [

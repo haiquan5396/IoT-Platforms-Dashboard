@@ -13,9 +13,27 @@ var item_service_1 = require("./item.service");
 var ItemsComponent = (function () {
     function ItemsComponent(itemsService) {
         this.itemsService = itemsService;
+        this.switchTypes = ['light', 'switch', 'SwitchItem'];
     }
     ItemsComponent.prototype.ngOnInit = function () {
         this.getItems();
+    };
+    ItemsComponent.prototype.isSwitchTypes = function (type) {
+        for (var _i = 0, _a = this.switchTypes; _i < _a.length; _i++) {
+            var stype = _a[_i];
+            if (stype == type)
+                return true;
+        }
+        return false;
+    };
+    ItemsComponent.prototype.isOn = function (state) {
+        if (state == 'on' || state == 'ON')
+            return true;
+        return false;
+    };
+    ItemsComponent.prototype.changeState = function (item) {
+        var _this = this;
+        this.itemsService.changeItemState(item).subscribe(function (res) { return console.log(res); }, function (error) { return _this.errorMessage = error; });
     };
     ItemsComponent.prototype.getItems = function () {
         var _this = this;
