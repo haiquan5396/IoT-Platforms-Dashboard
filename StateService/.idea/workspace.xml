@@ -14,7 +14,7 @@
   </component>
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/StateService$StateService.coverage" NAME="StateService Coverage Results" MODIFIED="1479973485311" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
-    <SUITE FILE_PATH="coverage/StateService$newStateService.coverage" NAME="newStateService Coverage Results" MODIFIED="1481262194878" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/StateService$newStateService.coverage" NAME="newStateService Coverage Results" MODIFIED="1482328936407" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
@@ -38,11 +38,11 @@
       <file leaf-file-name="StateService.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/StateService.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="362">
-              <caret line="110" column="24" selection-start-line="110" selection-start-column="24" selection-end-line="110" selection-end-column="24" />
+            <state relative-caret-position="-465">
+              <caret line="32" column="36" selection-start-line="32" selection-start-column="36" selection-end-line="32" selection-end-column="36" />
               <folding>
-                <marker date="1481262133730" expanded="true" signature="2943:3000" ph="SELECT * FRO... missing_value" />
-                <marker date="1481262133730" expanded="true" signature="3345:3402" ph="SELECT * FRO... missing_value" />
+                <marker date="1481271561567" expanded="true" signature="3246:3303" ph="SELECT * FRO... missing_value" />
+                <marker date="1481271561567" expanded="true" signature="3648:3705" ph="SELECT * FRO... missing_value" />
               </folding>
             </state>
           </provider>
@@ -51,7 +51,7 @@
       <file leaf-file-name="openhab.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/platform_driver/openhab.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
+            <state relative-caret-position="735">
               <caret line="51" column="32" selection-start-line="51" selection-start-column="32" selection-end-line="51" selection-end-column="32" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
@@ -157,8 +157,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -193,6 +191,8 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -539,6 +539,61 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/scheduler.py">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="22" column="26" selection-start-line="22" selection-start-column="26" selection-end-line="22" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/StateService.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1481271561567" expanded="true" signature="3246:3303" ph="SELECT * FRO... missing_value" />
+            <marker date="1481271561567" expanded="true" signature="3648:3705" ph="SELECT * FRO... missing_value" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/platform_driver/openhab.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="735">
+          <caret line="51" column="32" selection-start-line="51" selection-start-column="32" selection-end-line="51" selection-end-column="32" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/influxdb_data_recorder.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="45" selection-start-line="7" selection-start-column="45" selection-end-line="7" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/platform_driver/driver_base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="14" selection-start-line="4" selection-start-column="14" selection-end-line="4" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/platform_driver/driver_client.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="7" column="19" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="19" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scheduler.py">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
@@ -550,8 +605,8 @@
         <state relative-caret-position="450">
           <caret line="30" column="28" selection-start-line="30" selection-start-column="28" selection-end-line="30" selection-end-column="28" />
           <folding>
-            <marker date="1481262133730" expanded="true" signature="2943:3000" ph="SELECT * FRO... missing_value" />
-            <marker date="1481262133730" expanded="true" signature="3345:3402" ph="SELECT * FRO... missing_value" />
+            <marker date="1481271561567" expanded="true" signature="3246:3303" ph="SELECT * FRO... missing_value" />
+            <marker date="1481271561567" expanded="true" signature="3648:3705" ph="SELECT * FRO... missing_value" />
           </folding>
         </state>
       </provider>
@@ -569,8 +624,8 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1481262133730" expanded="true" signature="2943:3000" ph="SELECT * FRO... missing_value" />
-            <marker date="1481262133730" expanded="true" signature="3345:3402" ph="SELECT * FRO... missing_value" />
+            <marker date="1481271561567" expanded="true" signature="3246:3303" ph="SELECT * FRO... missing_value" />
+            <marker date="1481271561567" expanded="true" signature="3648:3705" ph="SELECT * FRO... missing_value" />
           </folding>
         </state>
       </provider>
@@ -616,8 +671,8 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1481262133730" expanded="true" signature="2943:3000" ph="SELECT * FRO... missing_value" />
-            <marker date="1481262133730" expanded="true" signature="3345:3402" ph="SELECT * FRO... missing_value" />
+            <marker date="1481271561567" expanded="true" signature="3246:3303" ph="SELECT * FRO... missing_value" />
+            <marker date="1481271561567" expanded="true" signature="3648:3705" ph="SELECT * FRO... missing_value" />
           </folding>
         </state>
       </provider>
@@ -641,8 +696,8 @@
         <state relative-caret-position="1485">
           <caret line="104" column="43" selection-start-line="104" selection-start-column="43" selection-end-line="104" selection-end-column="43" />
           <folding>
-            <marker date="1481262133730" expanded="true" signature="2943:3000" ph="SELECT * FRO... missing_value" />
-            <marker date="1481262133730" expanded="true" signature="3345:3402" ph="SELECT * FRO... missing_value" />
+            <marker date="1481271561567" expanded="true" signature="3246:3303" ph="SELECT * FRO... missing_value" />
+            <marker date="1481271561567" expanded="true" signature="3648:3705" ph="SELECT * FRO... missing_value" />
           </folding>
         </state>
       </provider>
@@ -666,8 +721,8 @@
         <state relative-caret-position="240">
           <caret line="21" column="34" selection-start-line="21" selection-start-column="34" selection-end-line="21" selection-end-column="34" />
           <folding>
-            <marker date="1481262133730" expanded="true" signature="2943:3000" ph="SELECT * FRO... missing_value" />
-            <marker date="1481262133730" expanded="true" signature="3345:3402" ph="SELECT * FRO... missing_value" />
+            <marker date="1481271561567" expanded="true" signature="3246:3303" ph="SELECT * FRO... missing_value" />
+            <marker date="1481271561567" expanded="true" signature="3648:3705" ph="SELECT * FRO... missing_value" />
           </folding>
         </state>
       </provider>
@@ -691,8 +746,8 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1481262133730" expanded="true" signature="2943:3000" ph="SELECT * FRO... missing_value" />
-            <marker date="1481262133730" expanded="true" signature="3345:3402" ph="SELECT * FRO... missing_value" />
+            <marker date="1481271561567" expanded="true" signature="3246:3303" ph="SELECT * FRO... missing_value" />
+            <marker date="1481271561567" expanded="true" signature="3648:3705" ph="SELECT * FRO... missing_value" />
           </folding>
         </state>
       </provider>
@@ -716,8 +771,8 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1481262133730" expanded="true" signature="2943:3000" ph="SELECT * FRO... missing_value" />
-            <marker date="1481262133730" expanded="true" signature="3345:3402" ph="SELECT * FRO... missing_value" />
+            <marker date="1481271561567" expanded="true" signature="3246:3303" ph="SELECT * FRO... missing_value" />
+            <marker date="1481271561567" expanded="true" signature="3648:3705" ph="SELECT * FRO... missing_value" />
           </folding>
         </state>
       </provider>
@@ -741,8 +796,8 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1481262133730" expanded="true" signature="2943:3000" ph="SELECT * FRO... missing_value" />
-            <marker date="1481262133730" expanded="true" signature="3345:3402" ph="SELECT * FRO... missing_value" />
+            <marker date="1481271561567" expanded="true" signature="3246:3303" ph="SELECT * FRO... missing_value" />
+            <marker date="1481271561567" expanded="true" signature="3648:3705" ph="SELECT * FRO... missing_value" />
           </folding>
         </state>
       </provider>
@@ -766,8 +821,8 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1481262133730" expanded="true" signature="2943:3000" ph="SELECT * FRO... missing_value" />
-            <marker date="1481262133730" expanded="true" signature="3345:3402" ph="SELECT * FRO... missing_value" />
+            <marker date="1481271561567" expanded="true" signature="3246:3303" ph="SELECT * FRO... missing_value" />
+            <marker date="1481271561567" expanded="true" signature="3648:3705" ph="SELECT * FRO... missing_value" />
           </folding>
         </state>
       </provider>
@@ -784,8 +839,8 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1481262133730" expanded="true" signature="2943:3000" ph="SELECT * FRO... missing_value" />
-            <marker date="1481262133730" expanded="true" signature="3345:3402" ph="SELECT * FRO... missing_value" />
+            <marker date="1481271561567" expanded="true" signature="3246:3303" ph="SELECT * FRO... missing_value" />
+            <marker date="1481271561567" expanded="true" signature="3648:3705" ph="SELECT * FRO... missing_value" />
           </folding>
         </state>
       </provider>
@@ -795,8 +850,8 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1481262133730" expanded="true" signature="2943:3000" ph="SELECT * FRO... missing_value" />
-            <marker date="1481262133730" expanded="true" signature="3345:3402" ph="SELECT * FRO... missing_value" />
+            <marker date="1481271561567" expanded="true" signature="3246:3303" ph="SELECT * FRO... missing_value" />
+            <marker date="1481271561567" expanded="true" signature="3648:3705" ph="SELECT * FRO... missing_value" />
           </folding>
         </state>
       </provider>
@@ -809,9 +864,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/platform_driver/README.md">
-      <provider editor-type-id="MarkdownFxPreviewEditor">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="FIRST">
           <first_editor relative-caret-position="0">
@@ -820,11 +872,11 @@
           <second_editor />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
       <provider editor-type-id="MarkdownFxPreviewEditor">
         <state />
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="FIRST">
           <first_editor relative-caret-position="165">
@@ -832,6 +884,9 @@
           </first_editor>
           <second_editor />
         </state>
+      </provider>
+      <provider editor-type-id="MarkdownFxPreviewEditor">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/platform_driver/oh.py">
@@ -868,8 +923,8 @@
         <state relative-caret-position="160">
           <caret line="189" column="9" selection-start-line="189" selection-start-column="9" selection-end-line="189" selection-end-column="9" />
           <folding>
-            <marker date="1481262133730" expanded="true" signature="2943:3000" ph="SELECT * FRO... missing_value" />
-            <marker date="1481262133730" expanded="true" signature="3345:3402" ph="SELECT * FRO... missing_value" />
+            <marker date="1481271561567" expanded="true" signature="3246:3303" ph="SELECT * FRO... missing_value" />
+            <marker date="1481271561567" expanded="true" signature="3648:3705" ph="SELECT * FRO... missing_value" />
           </folding>
         </state>
       </provider>
@@ -902,7 +957,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/platform_driver/openhab.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
+        <state relative-caret-position="735">
           <caret line="51" column="32" selection-start-line="51" selection-start-column="32" selection-end-line="51" selection-end-column="32" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
@@ -912,11 +967,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/StateService.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="362">
-          <caret line="110" column="24" selection-start-line="110" selection-start-column="24" selection-end-line="110" selection-end-column="24" />
+        <state relative-caret-position="-465">
+          <caret line="32" column="36" selection-start-line="32" selection-start-column="36" selection-end-line="32" selection-end-column="36" />
           <folding>
-            <marker date="1481262133730" expanded="true" signature="2943:3000" ph="SELECT * FRO... missing_value" />
-            <marker date="1481262133730" expanded="true" signature="3345:3402" ph="SELECT * FRO... missing_value" />
+            <marker date="1481271561567" expanded="true" signature="3246:3303" ph="SELECT * FRO... missing_value" />
+            <marker date="1481271561567" expanded="true" signature="3648:3705" ph="SELECT * FRO... missing_value" />
           </folding>
         </state>
       </provider>

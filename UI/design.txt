@@ -1,0 +1,12 @@
+Component Design
+
+homepage:
+- nav Component
+- sidebar Component
+- home Component
+
+item
+
+- nav Component
+- sidebar Component
+- item Component ( input: item_id)

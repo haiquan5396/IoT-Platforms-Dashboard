@@ -1,22 +1,22 @@
 <div class="panel panel-default">
   <!-- Default panel contents -->
-  <div class="panel-heading">Panel heading</div>
+  <div class="panel-heading">DashBoard</div>
 
   <!-- Table -->
   <table class="table">
     <thead>
         <tr>
             <th>Name</th>
-            <th>State</th>
-            <th>Type</th> 
+            <!--<th>State</th>-->
+            <!--<th>Type</th> -->
             <th>Action</th>
         <tr>
     </thead>
     <tbody>
         <tr *ngFor="let item of items">
             <td>{{item[0]}}</td>
-            <td>{{item[1]}}</td>
-            <td>{{item[2]}}</td>
+            <!--<td>{{item[1]}}</td>-->
+            <!--<td>{{item[2]}}</td>-->
             <td *ngIf="isSwitchTypes(item[2]) == true">
                     <label class="switch">
                             <input *ngIf="isOn(item[1]) == true" type="checkbox" checked (change)="changeState(item)"/>
