@@ -96,14 +96,19 @@ def get_sensor_state_by_name(name):
     result_set = db_client.query('SELECT * FROM \"' + name + '\" ORDER BY time DESC LIMIT 1')
     return json.dumps(list(result_set)[0][0])  ##{"platform": "openhab", "state": "ON", ....}
 
-@app.route("/api/states/history/<name>", methods=["GET"])
+@app.route("/api/states/history/<name>/<select_type>/<time_start>", methods=["GET"])
 @crossdomain(origin="*")
-def get_state_history_by_name(name):
+def get_state_history_by_name(name, select_type,time_start):
     global db_client
     print "get history of" + name
-    # todo: check sensor valid or not
-    result_set = db_client.query('SELECT * FROM \"' + name + '\" ORDER BY time DESC LIMIT 5')
-    return json.dumps(list(result_set)[0])
+    if select_type == "first_time":
+        # time_start o day la khoang thoi gian can truy van < Vi du: 5phut, 20phut, 30phut
+        result_set = db_client.query('SELECT * FROM \"' + name + '\" WHERE time >= now() - ' + time_start +'m')
+        return json.dumps(list(result_set)[0])
+    else:
+        # time_start o day la moc  thoi gian
+        result_set = db_client.query('SELECT * FROM \"' + name + '\" WHERE time >= \''+ time_start + '\'')
+        return json.dumps(list(result_set)[0])
 
 @app.route("/api/states/<name>", methods=["POST","OPTIONS"])
 @crossdomain(origin="*",headers=['origin', 'content-type', 'accept'])
