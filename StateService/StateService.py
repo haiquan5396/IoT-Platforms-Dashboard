@@ -84,7 +84,7 @@ def get_sensor_states():
     items = []
     for platform in list_platforms:
         items.extend(platform.driver.get_all_sensors_infomation())
-    print items
+    # print items
     return json.dumps(items)
 
 @app.route("/api/states/<name>",methods=["GET"])
@@ -94,6 +94,7 @@ def get_sensor_state_by_name(name):
     print "get state of " + name
     # todo: check sensor valid or not
     result_set = db_client.query('SELECT * FROM \"' + name + '\" ORDER BY time DESC LIMIT 1')
+    print json.dumps(list(result_set)[0][0])
     return json.dumps(list(result_set)[0][0])  ##{"platform": "openhab", "state": "ON", ....}
 
 @app.route("/api/states/history/<name>/<select_type>/<time_start>", methods=["GET"])
