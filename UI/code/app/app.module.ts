@@ -9,10 +9,12 @@ import { SideBarComponent } from './sidebar/sidebar.component';
 import { NavComponent } from './nav/nav.component';
 import { ItemsComponent } from './items/items.component';
 import { HelpComponent } from './help/help.component';
+import { ItemHistoryComponent } from './item_history/item_history.component';
 
 const appRoutes: Routes = [
   { path: 'home', component: ItemsComponent },
   { path: 'help', component: HelpComponent},
+  { path: 'history/:name', component: ItemHistoryComponent},
   { path: '', component: ItemsComponent},
   // { path: '/scr'}
 ]
@@ -30,6 +32,7 @@ const appRoutes: Routes = [
     SideBarComponent,
     NavComponent,
     ItemsComponent,
+    ItemHistoryComponent,
     HelpComponent,
     ],
   providers: [],

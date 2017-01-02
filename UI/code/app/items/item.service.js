@@ -16,6 +16,7 @@ require("rxjs/add/operator/catch");
 var ItemService = (function () {
     function ItemService(http) {
         this.http = http;
+        this.data = {};
     }
     ItemService.prototype.getItems = function () {
         var _this = this;
@@ -24,6 +25,10 @@ var ItemService = (function () {
             return _this.http.get('http://localhost:1337/api/states').map(function (res) { return res.json(); });
         });
         // return this.http.get('http://localhost:1337/api/states').map((res:Response) => res.json());
+    };
+    ItemService.prototype.getItemByName = function (name) {
+        return this.http.get('http://localhost:1337/api/states/' + name)
+            .map(function (res) { return res.json(); }).catch(this.handleError);
     };
     ItemService.prototype.changeItemState = function (item) {
         switch (item[1]) {

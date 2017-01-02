@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ItemService } from './item.service';
 import { Item } from './item';
+
 @Component({
     moduleId: module.id,
     selector: 'pm-items',
@@ -11,8 +13,11 @@ import { Item } from './item';
 export class ItemsComponent implements OnInit {
     errorMessage: string;
     items: Item[];
-    selectedItem: Item;
-    constructor(private itemsService: ItemService) { }
+
+    constructor(
+        private itemsService: ItemService,
+        private router: Router
+        ) {}
 
     switchTypes: string[] = ['light','switch','SwitchItem']
     ngOnInit() { 
@@ -42,5 +47,8 @@ export class ItemsComponent implements OnInit {
             items => this.items = items,
             error => this.errorMessage = <any> error
         )
+    }
+    goToHistory(item: Item):void{
+        this.router.navigate(['/history',item[0]]);
     }
 }

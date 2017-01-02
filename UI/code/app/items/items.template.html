@@ -9,12 +9,12 @@
             <th>Name</th>
             <!--<th>State</th>-->
             <!--<th>Type</th> -->
-            <th>Action</th>
+            <th>State</th>
         <tr>
     </thead>
     <tbody>
         <tr *ngFor="let item of items">
-            <td>{{item[0]}}</td>
+            <td (click)="goToHistory(item)">{{item[0]}}</td>
             <!--<td>{{item[1]}}</td>-->
             <!--<td>{{item[2]}}</td>-->
             <td *ngIf="isSwitchTypes(item[2]) == true">

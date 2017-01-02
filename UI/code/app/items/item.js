@@ -1,6 +1,9 @@
 "use strict";
 var Item = (function () {
-    function Item() {
+    function Item(name, state, type) {
+        this.name = name;
+        this.state = state;
+        this.type = type;
     }
     return Item;
 }());

@@ -17,9 +17,11 @@ var sidebar_component_1 = require("./sidebar/sidebar.component");
 var nav_component_1 = require("./nav/nav.component");
 var items_component_1 = require("./items/items.component");
 var help_component_1 = require("./help/help.component");
+var item_history_component_1 = require("./item_history/item_history.component");
 var appRoutes = [
     { path: 'home', component: items_component_1.ItemsComponent },
     { path: 'help', component: help_component_1.HelpComponent },
+    { path: 'history/:name', component: item_history_component_1.ItemHistoryComponent },
     { path: '', component: items_component_1.ItemsComponent },
 ];
 var AppModule = (function () {
@@ -40,6 +42,7 @@ AppModule = __decorate([
             sidebar_component_1.SideBarComponent,
             nav_component_1.NavComponent,
             items_component_1.ItemsComponent,
+            item_history_component_1.ItemHistoryComponent,
             help_component_1.HelpComponent,
         ],
         providers: [],

@@ -10,12 +10,18 @@ import 'rxjs/add/operator/catch';
 export class ItemService {
     constructor(private http: Http){}
     state : string;
+    data = {};
     getItems(): Observable<Item[]> {
         return Observable
         .interval(1000).flatMap(() => {
             return this.http.get('http://localhost:1337/api/states').map((res:Response) => res.json());
         });
         // return this.http.get('http://localhost:1337/api/states').map((res:Response) => res.json());
+    }
+
+    getItemByName(name: string) {
+        return this.http.get('http://localhost:1337/api/states/'+name)
+        .map(res => res.json()).catch(this.handleError);
     }
 
     changeItemState(item: Item) {

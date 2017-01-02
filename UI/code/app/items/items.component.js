@@ -9,10 +9,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
+var router_1 = require("@angular/router");
 var item_service_1 = require("./item.service");
 var ItemsComponent = (function () {
-    function ItemsComponent(itemsService) {
+    function ItemsComponent(itemsService, router) {
         this.itemsService = itemsService;
+        this.router = router;
         this.switchTypes = ['light', 'switch', 'SwitchItem'];
     }
     ItemsComponent.prototype.ngOnInit = function () {
@@ -39,6 +41,9 @@ var ItemsComponent = (function () {
         var _this = this;
         this.itemsService.getItems().subscribe(function (items) { return _this.items = items; }, function (error) { return _this.errorMessage = error; });
     };
+    ItemsComponent.prototype.goToHistory = function (item) {
+        this.router.navigate(['/history', item[0]]);
+    };
     return ItemsComponent;
 }());
 ItemsComponent = __decorate([
@@ -49,7 +54,8 @@ ItemsComponent = __decorate([
         styleUrls: ['items.component.css'],
         providers: [item_service_1.ItemService]
     }),
-    __metadata("design:paramtypes", [item_service_1.ItemService])
+    __metadata("design:paramtypes", [item_service_1.ItemService,
+        router_1.Router])
 ], ItemsComponent);
 exports.ItemsComponent = ItemsComponent;
 //# sourceMappingURL=items.component.js.map
