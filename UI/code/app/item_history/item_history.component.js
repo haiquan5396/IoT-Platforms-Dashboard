@@ -18,21 +18,24 @@ var ItemHistoryComponent = (function () {
         this.itemHistoryService = itemHistoryService;
         this.itemService = itemService;
         this.route = route;
+        this.raw_data = [];
     }
     ItemHistoryComponent.prototype.getHistoryFromScratch = function (name, time_start) {
         var _this = this;
-        this.itemHistoryService.getHistoryFromScratch(name, time_start).subscribe(
-        // res => this.items = res,
-        function (res) {
-            for (var _i = 0, res_1 = res; _i < res_1.length; _i++) {
-                var i = res_1[_i];
-                console.log(i['state']);
-            }
-        }, function (error) { return _this.errorMessage = error; });
+        var flag = true;
+        while (flag) {
+            this.itemHistoryService.getHistoryFromScratch(name, time_start).subscribe(function (res) {
+                for (var _i = 0, res_1 = res; _i < res_1.length; _i++) {
+                    var i = res_1[_i];
+                    _this.raw_data.push(i);
+                }
+            }, function (error) { return _this.errorMessage = error; });
+            flag = false;
+        }
     };
     ItemHistoryComponent.prototype.getUpdatedHistory = function (name, time_start) {
         var _this = this;
-        this.itemHistoryService.getUpdatedHistory(name, time_start).subscribe(function (res) { return _this.items = res; }, function (error) { return _this.errorMessage = error; });
+        this.itemHistoryService.getUpdatedHistory(name, time_start).subscribe(function (res) { return _this.raw_data = res; }, function (error) { return _this.errorMessage = error; });
     };
     ItemHistoryComponent.prototype.getItemType = function (name) {
         var _this = this;
@@ -44,69 +47,90 @@ var ItemHistoryComponent = (function () {
         this.route.params.subscribe(function (params) {
             _this.selectedName = params['name'];
             _this.getItemType(_this.selectedName);
-            _this.getHistoryFromScratch(_this.selectedName, _this.selectedType);
+            _this.getHistoryFromScratch(_this.selectedName, "2");
         });
     };
     ItemHistoryComponent.prototype.ngAfterViewInit = function () {
-        this.renderChart();
+        this.renderChart(this.selectedName, '2');
     };
-    ItemHistoryComponent.prototype.renderChart = function () {
-        Highcharts.setOptions({
-            global: {
-                useUTC: false
-            }
-        });
-        // Create the chart
-        Highcharts.stockChart('container', {
-            chart: {
-                events: {
-                    load: function () {
-                        // set up the updating of the chart each second
-                        var series = this.series[0];
-                        setInterval(function () {
-                            var x = (new Date()).getTime(), // current time
-                            y = Math.round(Math.random() * 100);
-                            series.addPoint([x, y], true, true);
-                        }, 1000);
-                    }
+    ItemHistoryComponent.prototype.renderChart = function (name, time) {
+        var url = 'http://localhost:1337/api/states/history/' + name + '/first_time/' + time;
+        jQuery.getJSON(url, function (data) {
+            //option
+            Highcharts.setOptions({
+                global: {
+                    useUTC: false
                 }
-            },
-            rangeSelector: {
-                buttons: [{
-                        count: 1,
-                        type: 'minute',
-                        text: '1M'
-                    }, {
-                        count: 5,
-                        type: 'minute',
-                        text: '5M'
-                    }, {
-                        type: 'all',
-                        text: 'All'
-                    }],
-                inputEnabled: false,
-                selected: 0
-            },
-            title: {
-                text: this.selectedName
-            },
-            exporting: {
-                enabled: false
-            },
-            series: [{
-                    name: 'Random data',
-                    data: (function () {
-                        // generate an array of random data
-                        var data = [], time = (new Date()).getTime(), i;
-                        for (i = -999; i <= 0; i += 1) {
-                            data.push([
-                                time + i * 1000,
-                                Math.round(Math.random() * 100)
-                            ]);
+            });
+            //##########################################################
+            Highcharts.stockChart('container', {
+                chart: {
+                    events: {
+                        load: function () {
+                            // set up the updating of the chart each second
+                            var series = this.series[0];
+                            var time_start = data[data.length - 1]['0'];
+                            setInterval(function () {
+                                updateData(time_start);
+                            }, 1000);
+                            function updateData(time_start) {
+                                console.log("update");
+                                var url2 = 'http://localhost:1337/api/states/history/' + name + '/second_time/' + time_start;
+                                data = jQuery.getJSON(url2, function (data1) {
+                                    for (var _i = 0, data1_1 = data1; _i < data1_1.length; _i++) {
+                                        var item = data1_1[_i];
+                                        var time = new Date(item['0']).getTime();
+                                        var state = Number(item['1']);
+                                        series.addPoint([time * 1000, state], true, true);
+                                    }
+                                    ;
+                                    update_time(data1[data1.length - 1] + '');
+                                });
+                                function update_time(time) {
+                                    time_start = time;
+                                }
+                                console.log(time_start);
+                            }
+                            // updateData(time_start)
                         }
-                        return data;
-                    }())
-                }]
+                    }
+                },
+                rangeSelector: {
+                    buttons: [{
+                            count: 1,
+                            type: 'minute',
+                            text: '1M'
+                        }, {
+                            count: 5,
+                            type: 'minute',
+                            text: '5M'
+                        }, {
+                            type: 'all',
+                            text: 'All'
+                        }],
+                    inputEnabled: false,
+                    selected: 0
+                },
+                title: {
+                    text: this.selectedName
+                },
+                exporting: {
+                    enabled: false
+                },
+                series: [{
+                        name: 'Random data',
+                        data: (function () {
+                            var newdata = [];
+                            for (var _i = 0, data_1 = data; _i < data_1.length; _i++) {
+                                var i = data_1[_i];
+                                var time = new Date(i['0']).getTime();
+                                var state = Number(i['1']);
+                                newdata.push([time * 1000, state]);
+                            }
+                            return newdata;
+                        }())
+                    }]
+            });
         });
     };
     return ItemHistoryComponent;

@@ -10,10 +10,10 @@ import 'rxjs/add/operator/catch';
 export class ItemHistoryService {
 
     constructor(private http: Http){}
-    getHistoryFromScratch(name: string, time_start: string): Observable<Item[]>{
+    getHistoryFromScratch(name: string, time_start: string): Observable<string[][]>{
         return this.http.get('http://localhost:1337/api/states/history/'+name+'/first_time/'+ time_start).map((res:Response) => res.json());
     }
-    getUpdatedHistory(name: string, time_start: string): Observable<Item[]> {
+    getUpdatedHistory(name: string, time_start: string): Observable<string[][]> {
         return Observable
         .interval(3000).flatMap(() => {
             return this.http.get('http://localhost:1337/api/states/history/'+name+'/first_time/'+ time_start).map((res:Response) => res.json());
